@@ -9,7 +9,7 @@ Object.prototype.bind=function(context, ...args1){
         // 判断fBound是否被当做构造函数调用，如果是会忽略传入的context
         return this.apply(this instanceof FnBound ? this : context, allArgs)
     }
-    // 通过设置一个中转构造函数FnNOP，使绑定后的函数与调用bind()的函数处于同一原型链上
+    // 通过设置一个中转的空构造函数FnNOP，使绑定后的函数与调用bind()的函数处于同一原型链上
     const FnNOP = function() {}
     this.prototype && (FnNOP.prototype = this.prototype)
     FnBound.prototype = new FnNOP()
