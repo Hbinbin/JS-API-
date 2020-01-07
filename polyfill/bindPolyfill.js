@@ -1,7 +1,7 @@
 /**
- *
+ * bind的原生实现
  */
-Object.prototype.bind=function(context, ...args1){
+Object.prototype.bind = function(context, ...args1){
     // 非function对象调用，扔出一个错误
     if (typeof this !== 'function') throw new Error('Not a function!')
     const FnBound = (...args2) => {
